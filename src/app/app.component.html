@@ -25,9 +25,17 @@
   </div>
 
   <div id="home" >
-    <app-article [titreArticle]="'Vélo'" [prixAtricle]="prixOne" (infos)="onInfos($event)"></app-article>
-    <app-article  [titreArticle]="'TV'" [prixAtricle]="prixTwo" (infos)="onInfos($event)"></app-article>
-    <app-article  [titreArticle]="'Jouet'" [prixAtricle]="prixThree" (infos)="onInfos($event)"></app-article>
+<app-article *ngFor="let elm of articles"
+    [titreArticle]="elm.titre"
+    [prixArticle]="elm.prix"
+    [description]="elm.description"
+    [urlImg]="elm.urlImg"
+    [textAltImg]="elm.textAltImg"
+    [disponible]="false"
+    (infos)="onInfos($event)"
+></app-article>
+  
+    
   </div>
 </div>
 

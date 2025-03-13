@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { merge } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +8,34 @@ import { merge } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   
-  title = 'labonneaffaire';
-  prixOne : number = 80;
-  prixTwo : number = 230;   
-  prixThree : number = 15;
   message : string = '';
+
+  articles = [
+    {
+      titre: 'Article 1',
+      prix: 80,
+      description: 'Description de l\'article 1',
+      urlImg: 'assets/img/google.png',
+      textAltImg: 'Image de l\'article 1',
+      disponible: true
+    },
+    {
+      titre: 'Article 2',
+      prix: 230,
+      description: 'Description de l\'article 2',
+      urlImg: 'assets/img/google.png',
+      textAltImg: 'Image de l\'article 2',
+      disponible: false
+    },    
+    {
+      titre: 'Article 3',
+      prix: 15,
+      description: 'Description de l\'article 3',
+      urlImg: 'assets/img/google.png',
+      textAltImg: 'Image de l\'article 3',
+      disponible: true
+    }
+  ];
 
   constructor() {
     this.ngOnInit();

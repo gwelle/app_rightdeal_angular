@@ -15,31 +15,43 @@ export class ArticleComponent implements OnInit {
     console.log('ArticleComponent::ngOnInit()');
   }
 
-  textAltImg : string = 'Google logo';
-  urlImg : string = 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png';
+  nbVotes : number = 0;
   nbLike : number = 0;
+  like : boolean = true ;
   comment : string = "Angular c'est super !";
 
   // @Input() permet de déclarer une propriété d'entrée pour le composant.
   // Cela signifie que la valeur de cette propriété est passée par un composant parent.
   // Dans notre cas, le composant parent est AppComponent.
   @Input() titreArticle : string = '' ;
-  @Input() prixAtricle : number = 0 ;
+  @Input() prixArticle : number = 0 ;
+  @Input() description : string = 'Description de l\'article'; ;
+  @Input() urlImg : string = '';
+  @Input() textAltImg : string = '';
+  @Input() disponible : boolean = false;
 
   // @Output() permet de déclarer une propriété de sortie pour le composant.
   // Cela signifie que le composant enfant peut émettre des événements vers le composant parent.
   // Dans notre cas, le composant enfant est ArticleComponent.
   @Output() infos = new EventEmitter<string>();
 
-  nbVotes : number = 0;
-  disponible : boolean = false ;
-
   onLike() {
     console.log('ArticleComponent::onLike()');
-    this.nbLike++;
-    this.nbVotes++;
 
+    if(this.like === true){
+      this.nbLike++;
+      this.like = false;
+    }
+    else{
+      this.nbLike--;
+      this.like = true;
+    }
     // émettre un événement vers le composant parent
     this.infos.emit(this.titreArticle);
+  }
+
+  // Méthode qui retourne la couleur du texte en fonction de la disponibilité de l'article
+  getColor(){
+    return(this.disponible === true ) ? 'green' : 'red';
   }
 }
