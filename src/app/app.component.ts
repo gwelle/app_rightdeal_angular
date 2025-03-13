@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -9,40 +10,19 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   
   message : string = '';
+  articles : any;
 
-  articles = [
-    {
-      titre: 'Article 1',
-      prix: 80,
-      description: 'Description de l\'article 1',
-      urlImg: 'assets/img/google.png',
-      textAltImg: 'Image de l\'article 1',
-      disponible: true
-    },
-    {
-      titre: 'Article 2',
-      prix: 230,
-      description: 'Description de l\'article 2',
-      urlImg: 'assets/img/google.png',
-      textAltImg: 'Image de l\'article 2',
-      disponible: false
-    },    
-    {
-      titre: 'Article 3',
-      prix: 15,
-      description: 'Description de l\'article 3',
-      urlImg: 'assets/img/google.png',
-      textAltImg: 'Image de l\'article 3',
-      disponible: true
-    }
-  ];
-
-  constructor() {
+  //Avec la visibilité private, dataService n'est accessible que dans la classe AppComponent.
+    //dataService est injecté dans le constructeur de la classe AppComponent.
+    //readonly empêche la modification de la propriété dataService après son initialisation.
+  constructor(private readonly dataService: DataService) {
+    console.log('AppComponent::constructor()');
     this.ngOnInit();
   }
 
   ngOnInit(): void {
     console.log('AppComponent::ngOnInit()');
+    this.articles = this.dataService.articles;
   }
 
   onInfos(event : string) : string{

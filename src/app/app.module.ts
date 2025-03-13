@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
 import { FormsModule } from '@angular/forms';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [DataService], // définit les fournisseurs de services pour l'application.
   bootstrap: [AppComponent] // définit le composant racine de l'application, 
   // la vue principale qui héberge tous les autres composants.
 })
