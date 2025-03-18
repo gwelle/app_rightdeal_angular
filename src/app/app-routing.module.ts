@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListsComponent } from './lists/lists.component';
+import { DetailsComponent } from './details/details.component';
 
 // Les routes sont définies dans le tableau routes.
 // Chaque route est un objet avec deux propriétés : path et component.
@@ -10,7 +11,8 @@ import { ListsComponent } from './lists/lists.component';
 // Lorsque l'URL est http://localhost:4200/article, le composant ArticleComponent est affiché.
 // Lorsque l'URL est http://localhost:4200, le composant ListsComponent est affiché.
 const routes: Routes = [
-    {path: 'lists', component: ListsComponent}
+    {path: 'lists', component: ListsComponent},
+    {path : 'details', component: DetailsComponent},
 ];
 
 @NgModule({
