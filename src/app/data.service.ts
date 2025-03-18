@@ -15,6 +15,7 @@ export class DataService {
   // Les données sont accessibles à partir de n'importe quel composant de l'application.
   articles = [
     {
+      id : 1,
       titre: 'Article 1',
       prix: 80,
       description: 'Description de l\'article 1',
@@ -23,6 +24,7 @@ export class DataService {
       disponible: true
     },
     {
+      id: 2,
       titre: 'Article 2',
       prix: 230,
       description: 'Description de l\'article 2',
@@ -31,6 +33,7 @@ export class DataService {
       disponible: false
     },    
     {
+      id: 3,
       titre: 'Article 3',
       prix: 15,
       description: 'Description de l\'article 3',
@@ -39,4 +42,9 @@ export class DataService {
       disponible: true
     }
   ];
+
+  getIdByArticle(titre: string){
+    const article = this.articles.find(elm=> elm.titre === titre);
+    return article ? article.id : 0;
+  }
 }

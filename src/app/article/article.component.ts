@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-article',
@@ -7,13 +8,6 @@ import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
   styleUrl: './article.component.css'
 })
 export class ArticleComponent implements OnInit {
-
-  constructor() {
-      this.ngOnInit();
-   }
-  ngOnInit(): void {
-    console.log('ArticleComponent::ngOnInit()');
-  }
 
   nbVotes : number = 0;
   nbLike : number = 0;
@@ -29,11 +23,22 @@ export class ArticleComponent implements OnInit {
   @Input() urlImg : string = '';
   @Input() textAltImg : string = '';
   @Input() disponible : boolean = false;
+  @Input() idArticle: number | undefined ;
 
   // @Output() permet de déclarer une propriété de sortie pour le composant.
   // Cela signifie que le composant enfant peut émettre des événements vers le composant parent.
   // Dans notre cas, le composant enfant est ArticleComponent.
   @Output() infos = new EventEmitter<string>();
+
+  constructor(private readonly dataService: DataService) {
+    console.log('ArticleComponent::constructor()');
+    this.ngOnInit();
+ }
+
+  ngOnInit(): void {
+    console.log('ArticleComponent::ngOnInit()');
+    this.idArticle = this.dataService.getIdByArticle(this.titreArticle);
+  }
 
   onLike() {
     console.log('ArticleComponent::onLike()');

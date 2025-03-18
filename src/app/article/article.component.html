@@ -7,7 +7,10 @@
         </h5>
         <h6 class="card-title">{{prixArticle}}  €</h6>
         <p class="card-text">{{description}}</p>
-        <a routerLink="/details">Voir l'article</a>
+        
+        <a routerLink="/details/{{ idArticle }}">Voir l'article</a><br />
+        <a [routerLink]="['/details',idArticle]">see article</a>
+        
         <hr>
 
         <button  (click)="onLike()" [ngClass]="

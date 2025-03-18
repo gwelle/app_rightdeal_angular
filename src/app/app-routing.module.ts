@@ -12,7 +12,7 @@ import { DetailsComponent } from './details/details.component';
 // Lorsque l'URL est http://localhost:4200, le composant ListsComponent est affiché.
 const routes: Routes = [
     {path: 'lists', component: ListsComponent},
-    {path : 'details', component: DetailsComponent},
+    {path : 'details/:id', component: DetailsComponent},
 ];
 
 @NgModule({
