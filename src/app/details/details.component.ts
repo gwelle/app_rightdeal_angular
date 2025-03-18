@@ -32,9 +32,5 @@ export class DetailsComponent implements OnInit {
     this.prix = this.dataService.getArticleById(id)?.prix;
     this.description = this.dataService.getArticleById(id)?.description;
     this.urlImg = this.dataService.getArticleById(id)?.urlImg;
-
   }
-
-   
-
 }

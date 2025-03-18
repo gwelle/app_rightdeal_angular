@@ -8,13 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { DataService } from './data.service';
 import { ListsComponent } from './lists/lists.component';
 import { DetailsComponent } from './details/details.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ArticleComponent,
     ListsComponent,
-    DetailsComponent
+    DetailsComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
