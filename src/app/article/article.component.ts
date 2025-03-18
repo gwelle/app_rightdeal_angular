@@ -37,7 +37,7 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('ArticleComponent::ngOnInit()');
-    this.idArticle = this.dataService.getIdByArticle(this.titreArticle);
+    this.idArticle = this.dataService.getArticleByTitle(this.titreArticle);
   }
 
   onLike() {

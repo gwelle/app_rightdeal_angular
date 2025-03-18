@@ -1,8 +1,9 @@
 <div id="infoDetails" class="container">
-    <img src="assets/img/google.png" alt="google">
-    <h1>Titre de l'article</h1>
-    <p>Descriptin de l'article............</p>
-    <h3>XX € </h3><br>
+    <img [src]="urlImg" alt="" width="200" height="200">
+    <h1>{{titre}}</h1>
+    <h3>{{prix}} € </h3><br>
+    <p>{{description}}</p>
+    
 
     <a [routerLink]="['/lists']">Retour à la liste</a>
 </div>

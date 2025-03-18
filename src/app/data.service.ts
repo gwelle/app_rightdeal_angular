@@ -43,7 +43,13 @@ export class DataService {
     }
   ];
 
-  getIdByArticle(titre: string){
+  
+  getArticleById(id: number) {
+    const article = this.articles.find(elm=> elm.id === id);
+    return article ;
+  }
+
+  getArticleByTitle(titre: string) {
     const article = this.articles.find(elm=> elm.titre === titre);
     return article ? article.id : 0;
   }
