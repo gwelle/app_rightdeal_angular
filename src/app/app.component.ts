@@ -22,6 +22,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('AppComponent::ngOnInit()');
+
+    // AppComponent accède à la propriété articles du service DataService.
+    // AppComponent peut accéder aux données de l'application à partir de n'importe quel composant. 
     this.articles = this.dataService.articles;
   }
 

@@ -16,29 +16,7 @@
   </div>
 </nav>
 
-
-<!-- Contenu -->
-
-<div class="container">
-  <div id="alertMsg">
-    <p>{{message}}</p>
-  </div>
-
-  <div id="home" >
-<app-article *ngFor="let elm of articles"
-    [titreArticle]="elm.titre"
-    [prixArticle]="elm.prix"
-    [description]="elm.description"
-    [urlImg]="elm.urlImg"
-    [textAltImg]="elm.textAltImg"
-    [disponible]="false"
-    (infos)="onInfos($event)"
-></app-article>
-  
-    
-  </div>
-</div>
-
+<router-outlet></router-outlet>
 
 <!-- Pied de page -->
 <footer class="py-5 bg-dark">

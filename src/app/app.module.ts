@@ -6,11 +6,13 @@ import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
 import { FormsModule } from '@angular/forms';
 import { DataService } from './data.service';
+import { ListsComponent } from './lists/lists.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArticleComponent
+    ArticleComponent,
+    ListsComponent
   ],
   imports: [
     BrowserModule,
