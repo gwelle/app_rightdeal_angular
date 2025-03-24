@@ -15,8 +15,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 const routes: Routes = [
     {path: '', redirectTo: '/', pathMatch: 'full'},
     {path: 'home', component: AppComponent}, 
-    {path: 'lists', component: ListsComponent},
-    {path : 'details/:id', component: DetailsComponent},
+    {path: 'lists', component: ListsComponent, 
+      children: [{path : 'details/:id', component: DetailsComponent}]},
     {path: '404', component: PageNotFoundComponent},
     {path: '**', component: PageNotFoundComponent}
      //cette route doit être la dernière route du tableau routes 
