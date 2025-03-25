@@ -16,22 +16,8 @@
   </div>
 </nav>
 
-
-<!-- Contenu -->
-
-<div class="container">
-  <div id="alertMsg">
-    <p>{{message}}</p>
-  </div>
-
-  <div id="home" >
-    <app-article [titreArticle]="'Vélo'" [prixAtricle]="prixOne" (infos)="onInfos($event)"></app-article>
-    <app-article  [titreArticle]="'TV'" [prixAtricle]="prixTwo" (infos)="onInfos($event)"></app-article>
-    <app-article  [titreArticle]="'Jouet'" [prixAtricle]="prixThree" (infos)="onInfos($event)"></app-article>
-  </div>
-</div>
-
-
+<router-outlet></router-outlet>
+ 
 <!-- Pied de page -->
 <footer class="py-5 bg-dark">
   <div class="container">
