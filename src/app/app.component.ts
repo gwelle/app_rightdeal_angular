@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { merge } from 'rxjs';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,12 +15,24 @@ export class AppComponent implements OnInit {
   prixThree : number = 15;
   message : string = '';
 
+  seconds : number = 0;
+
   constructor() {
     this.ngOnInit();
   }
 
   ngOnInit(): void {
     console.log('AppComponent::ngOnInit()');
+    const counter = interval(1000); // 1s
+
+    // subscribe to the counter and display the value in the console
+    // subscribe (event|value, error, complete) 
+    counter.subscribe(
+      (value) => this.seconds = value,
+      (error) => console.error('error : ' + error),
+      () =>  console.info('completed')
+    );
+      
   }
 
   onInfos(event : string) : string{
