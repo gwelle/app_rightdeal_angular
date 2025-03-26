@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { interval } from 'rxjs';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
 @Component({
@@ -8,7 +8,7 @@ import { filter, map } from 'rxjs/operators';
   standalone: false,
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   
   title = 'labonneaffaire';
   prixOne : number = 80;
@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   message : string = '';
 
   seconds: string = '';
+  compteurSubscription: Subscription | undefined;
 
   constructor() {
     this.ngOnInit();
@@ -33,11 +34,12 @@ export class AppComponent implements OnInit {
 
     // subscribe to the counter and display the value in the console
     // subscribe (event|value, error, complete) 
-    counter.subscribe(
+    this.compteurSubscription = counter.subscribe(
       (value) => this.seconds = value,
       (error) => console.error('error : ' + error),
       () =>  console.info('completed')
     );
+
       
   }
 
@@ -45,5 +47,12 @@ export class AppComponent implements OnInit {
     console.log('AppComponent::onInfos()');
     this.message = "Merci d'avoir voté sur l'article " + event;
     return this.message ;
+  }
+
+  ngOnDestroy(): void {
+    console.log('AppComponent::ngOnDestroy()');
+
+    // unsubscribe to the counter when the component is destroyed to avoid memory leaks
+    this.compteurSubscription?.unsubscribe();
   }
 }
