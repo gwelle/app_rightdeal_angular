@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { interval } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,7 @@ export class AppComponent implements OnInit {
   prixThree : number = 15;
   message : string = '';
 
-  seconds : number = 0;
+  seconds: string = '';
 
   constructor() {
     this.ngOnInit();
@@ -23,7 +24,12 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('AppComponent::ngOnInit()');
-    const counter = interval(1000); // 1s
+
+
+    const counter = interval(1000).pipe(
+      filter(value => value % 2 === 0),
+      map((value: number) => value % 2 === 0 ? `${value} est pair` :`${value} est impair`));
+    
 
     // subscribe to the counter and display the value in the console
     // subscribe (event|value, error, complete) 
