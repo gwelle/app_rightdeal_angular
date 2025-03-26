@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
@@ -24,7 +23,9 @@ export class AddComponent implements OnInit {
 
   onSubmit(form : NgForm){
     console.log('AddComponent::onSubmit()');
+    console.log('titre: ' + form.value['title']);
     console.log('title: ' + this.title);
+    console.log('prix: ' + form.value['price']);
     console.log('price: ' + this.price);
   }
 

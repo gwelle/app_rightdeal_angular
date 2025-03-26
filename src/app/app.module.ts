@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
 import { FormsModule } from '@angular/forms';
 import { AddComponent } from './add/add.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AddComponent } from './add/add.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent] // définit le composant racine de l'application, 
