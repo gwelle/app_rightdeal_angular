@@ -23,10 +23,10 @@ export class AddComponent implements OnInit {
 
   onSubmit(form : NgForm){
     console.log('AddComponent::onSubmit()');
-    console.log('titre: ' + form.value['title']);
-    console.log('title: ' + this.title);
-    console.log('prix: ' + form.value['price']);
-    console.log('price: ' + this.price);
+    const newTitle = this.title;
+    const newPrice = this.price;
+    console.log("newTitle : " + newTitle);
+    console.log("newPrice : " + newPrice);
   }
 
 
